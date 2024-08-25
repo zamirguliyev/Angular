@@ -1,0 +1,10 @@
+<h1>User</h1>
+
+<ul>
+    @for (user of users; track user) {
+        <li> {{user.name}}  {{user.lastName}}</li>
+    }
+    <!-- <li *ngFor = let user of users>
+        {{user.name}}  {{user.lastName}}
+     </li> -->
+</ul>
