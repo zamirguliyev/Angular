@@ -1,0 +1,67 @@
+<h1>ngForm</h1>
+
+<div>
+  <form *ngIf="!isUpdateFormActive" #addForm="ngForm" (ngSubmit)="save(addForm)">
+    <div>
+      Name
+      <input name="name" [(ngModel)]="addModel.name"required minlength="3" type="text" />
+    </div>
+    <div>
+      Job
+      <select name="job" [(ngModel)]="addModel.job" required>
+        <option>Dev</option>
+        <option>SMM</option>
+        <option>Finance</option>
+      </select>
+    </div>
+    <div>
+      Join Date
+      <input name="startingDate" [(ngModel)]="addModel.startingDate" required type="date" />
+    </div>
+    <button [disabled]="!addForm.valid">Save</button>
+  </form>
+
+  <form *ngIf="isUpdateFormActive" #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+    <div>
+      Name
+      <input name="updateName" [(ngModel)]="updateModel.name"required minlength="3" type="text" />
+    </div>
+    <div>
+      Job
+      <select name="updateJob" [(ngModel)]="updateModel.job" required>
+        <option>Dev</option>
+        <option>SMM</option>
+        <option>Finance</option>
+      </select>
+    </div>
+    <div>
+      Join Date
+      <input name="updateStartingDate" [(ngModel)]="updateModel.startingDate" required type="date" />
+    </div>
+    <button [disabled]="!updateForm.valid">Update</button>
+    <button (click)="cancel()">Cancel</button>
+  </form>
+
+  <hr />
+
+  <table>
+    <thead>
+      <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Date</th>
+      <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of employees let i = index">
+        <td>{{i+1}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.job}}</td>
+        <td>{{e.startingDate | date:'dd.MM.yyyy'}}</td>
+        <td><button (click)="get(e,i)">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
