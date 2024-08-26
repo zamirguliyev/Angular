@@ -1,0 +1,70 @@
+<h1>Reactive Forms App</h1>
+<hr>
+
+<div *ngIf="!isUpdateFormActive">
+  <form [formGroup]="addForm">
+    <div>
+      Name
+      <input formControlName="name" type="text">
+    </div>
+    <div>
+      Section
+      <select formControlName="section">
+        <option>Dev</option>
+        <option>Smm</option>
+        <option>Finance</option>
+      </select>
+    </div>
+    <div>
+      Join Data
+      <input formControlName="startinDate" type="date" >
+    </div>
+    <button [disabled]="!addForm.valid" (click)="save()">Save</button>
+  </form>
+</div>
+
+<div *ngIf="isUpdateFormActive">
+  <form [formGroup]="updateForm">
+    <div>
+      Name
+      <input formControlName="name" type="text">
+    </div>
+    <div>
+      Section
+      <select formControlName="section">
+        <option>Dev</option>
+        <option>Smm</option>
+        <option>Finance</option>
+      </select>
+    </div>
+    <div>
+      Join Data
+      <input formControlName="startinDate" type="date" >
+    </div>
+    <button [disabled]="!updateForm.valid" (click)="update()">Save</button>
+    <button (click)="cancel()">Cancel</button>
+  </form>
+</div>
+
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Section</th>
+      <th>Join Date</th>
+      <th>Option</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let e of employees let i = index" >
+        <td>{{i + 1}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.section}}</td>
+        <td>{{e.startinDate | date:'dd.MM.yyyy'}}</td>
+        <button (click)="get(e,i)">Update</button>
+    </tr>
+   
+  </tbody>
+</table>
