@@ -24,8 +24,14 @@ export class AppComponent {
   count = signal(0) 
   results = signal<string[]>([])
 
+  //set,update 
   increment(){
+    //update
     this.count.update((oldValue)=>oldValue + 1)
+    //set 
+    // this.count.set(0)
+    // this.count.set(this.count() + 1)
+
     this.results.update((oldValue)=>[...oldValue,'increment'])
   }
 
