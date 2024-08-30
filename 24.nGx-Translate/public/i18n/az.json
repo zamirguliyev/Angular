@@ -1,0 +1,13 @@
+{
+    "App":{
+        "helloWorld":"Salam Dunya",
+        "loginPage":"Daxil Ol",
+        "homePage":"Esas Seife"
+    },
+    "Home":{
+        "homePage":"Esas Seife"
+    },
+    "Login":{
+        "loginPage":"Daxil Ol"
+    }
+}

@@ -1,0 +1,13 @@
+<h1>{{ "App.helloWorld" | translate }}</h1>
+
+<nav>
+  <a routerLink="/">{{ "App.homePage" | translate }}</a> ||
+  <a routerLink="/login"> {{ "App.loginPage" | translate }}</a>
+</nav>
+<hr />
+
+<select (change)="changeLanguage($event)">
+  <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+</select>
+
+<router-outlet></router-outlet>

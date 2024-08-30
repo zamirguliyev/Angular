@@ -1,0 +1,13 @@
+{
+    "App":{
+        "helloWorld":"Hello World",
+        "loginPage":"Login",
+        "homePage":"Home Page"
+    },
+    "Home":{
+        "homePage":"Home Page"
+    },
+    "Login":{
+        "loginPage":"Login"
+    }
+}
